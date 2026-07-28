@@ -4,6 +4,7 @@ import './styles/App.css';
 import TrafficForm from './components/TrafficForm';
 import TrafficHistory from './components/TrafficHistory';
 import { getCoaches, getModels } from './services/api';
+import logoToyota from './assets/toyotaPachuca.png';
 
 function App() {
     const [activeTab, setActiveTab] = useState('form');
@@ -46,7 +47,10 @@ function App() {
         <div className="app-container">
             <header className="header">
                 <div className="header-title">
-                    <h1>Toyota Pachuca</h1>
+                    <img 
+                        src={logoToyota}
+                        alt='Toyota Pachuca'
+                        className='header-logo' />
                     <div className="subtitle">Hoja de Tráfico</div>
                 </div>
                 <div className="header-tabs">

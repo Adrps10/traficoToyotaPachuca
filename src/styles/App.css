@@ -107,10 +107,14 @@ body {
 /* ============================================================
    CABECERA — IDENTIDAD TOYOTA
    ============================================================ */
+/* ============================================================
+   CABECERA — NUEVO DISEÑO BLANCO / DEGRADADO Y LOGO
+   ============================================================ */
 .header {
-    background: linear-gradient(120deg, var(--ink), var(--charcoal));
-    color: white;
-    padding: 22px 30px;
+    /* Fondo blanco con un elegante degradado hacia el color oscuro (Gris charcoal/negro) */
+    background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F8 50%, var(--charcoal) 100%);
+    color: var(--gray-900);
+    padding: 16px 30px;
     border-radius: var(--radius-lg);
     display: flex;
     justify-content: space-between;
@@ -124,58 +128,60 @@ body {
     overflow: hidden;
 }
 
+/* Efecto de luz roja Toyota sutil en la esquina superior derecha */
 .header::before {
     content: '';
     position: absolute;
     top: 0;
-    right: -60px;
-    width: 220px;
+    right: -40px;
+    width: 250px;
     height: 100%;
-    background: linear-gradient(120deg, transparent 40%, rgba(235, 10, 30, 0.18) 55%, transparent 70%);
+    background: linear-gradient(120deg, transparent 30%, rgba(235, 10, 30, 0.15) 60%, transparent 80%);
     pointer-events: none;
 }
 
-.header-title h1 {
-    font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.header-title .subtitle {
-    font-size: 13px;
-    opacity: 0.75;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-top: 2px;
-}
-
-.header-tabs {
+/* Contenedor del Logo + Subtítulo */
+.header-brand {
     display: flex;
-    gap: 10px;
-    position: relative;
-    z-index: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
 }
 
+.header-logo {
+    height: 48px; /* Ajusta la altura máxima según tus preferencias */
+    width: auto;
+    object-fit: contain;
+}
+
+.header-brand .subtitle {
+    font-size: 11px;
+    color: var(--gray-700);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Rediseño de botones para contrastar con el fondo claro del navbar */
 .tab-btn {
-    padding: 10px 24px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 22px;
+    border: 2px solid var(--gray-300);
     border-radius: 8px;
-    background: transparent;
-    color: white;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--gray-900);
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
     font-family: var(--font-body);
     transition: all 0.25s ease;
+    backdrop-filter: blur(4px);
 }
 
 .tab-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: white;
+    border-color: var(--gray-500);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 .tab-btn.active {
@@ -183,7 +189,25 @@ body {
     border-color: var(--toyota-red);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(235, 10, 30, 0.4);
+    box-shadow: 0 6px 18px rgba(235, 10, 30, 0.35);
+}
+
+/* Ajuste responsive para pantallas móviles */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 18px;
+    }
+
+    .header-brand {
+        align-items: center;
+    }
+
+    .header-logo {
+        height: 40px;
+    }
 }
 
 /* ============================================================
