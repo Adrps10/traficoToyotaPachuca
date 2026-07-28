@@ -296,4 +296,37 @@
         width: 100%;
         min-width: 0;
     }
+
+    /* ============================================================
+   ESTILO MEJORADO PARA SUBTÍTULOS (Hoja de Tráfico, etc.)
+   ============================================================ */
+.form-section h3 {
+    font-family: var(--font-display); /* Aplica Barlow Condensed (800) */
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--gray-900);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Layout y alineación con icono opcional */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    /* Indicador lateral Rojo Toyota */
+    position: relative;
+    padding-left: 16px;
+    border-left: 5px solid var(--toyota-red);
+    margin-bottom: 22px;
+    line-height: 1.2;
+}
+
+/* Efecto opcional: una línea sutil que acompaña al título hacia la derecha */
+.form-section h3::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, var(--gray-300), transparent);
+    margin-left: 10px;
+}
 }
