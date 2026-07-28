@@ -1,0 +1,9 @@
+﻿services:
+  - type: static
+    name: trafico-frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+    plan: free
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://trafico-backend.onrender.com/api/traffic

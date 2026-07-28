@@ -1,0 +1,412 @@
+.traffic-history {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.history-header h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gray-900);
+    padding-left: 14px;
+    border-left: 4px solid var(--toyota-red);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badges {
+    display: flex;
+    gap: 10px;
+}
+
+/* ============================================================
+   FILTROS
+   ============================================================ */
+.history-filters {
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+    flex-wrap: wrap;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-150);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    margin-bottom: 22px;
+}
+
+.search-box {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    min-width: 240px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: var(--font-body);
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--toyota-red);
+    box-shadow: 0 0 0 4px rgba(235, 10, 30, 0.08);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.filter-group label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-700);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-group input[type="date"] {
+    padding: 9px 12px;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    background: white;
+    font-family: var(--font-body);
+}
+
+.btn-filter,
+.btn-filter-outline,
+.btn-filter-clear {
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    font-family: var(--font-body);
+    height: 40px;
+}
+
+.btn-filter {
+    background: var(--toyota-red);
+    color: white;
+    border: none;
+}
+
+.btn-filter:hover {
+    background: var(--toyota-red-dark);
+    transform: translateY(-2px);
+}
+
+.btn-filter-outline {
+    background: white;
+    color: var(--ink);
+    border: 2px solid var(--gray-300);
+}
+
+.btn-filter-outline:hover {
+    border-color: var(--ink);
+    transform: translateY(-2px);
+}
+
+.btn-filter-clear {
+    background: none;
+    color: var(--gray-500);
+    border: none;
+    text-decoration: underline;
+}
+
+.btn-filter-clear:hover {
+    color: var(--gray-900);
+}
+
+/* ============================================================
+   TABLA
+   ============================================================ */
+.table-container {
+    overflow-x: auto;
+    border: 1px solid var(--gray-150);
+    border-radius: var(--radius-md);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+thead tr {
+    background: var(--ink);
+}
+
+th {
+    text-align: left;
+    padding: 12px 14px;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--gray-150);
+    transition: background 0.15s ease;
+}
+
+tbody tr:hover {
+    background: var(--gray-100);
+}
+
+tbody tr.completed {
+    background: var(--success-bg);
+}
+
+tbody tr.completed:hover {
+    background: #dcefdd;
+}
+
+td {
+    padding: 12px 14px;
+    color: var(--gray-900);
+    vertical-align: middle;
+}
+
+.row-subtext {
+    color: var(--gray-500);
+    font-size: 11px;
+}
+
+.status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status.active {
+    background: var(--warning-bg);
+    color: var(--warning);
+}
+
+.status.completed {
+    background: var(--success-bg);
+    color: var(--success);
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-exit-action {
+    padding: 6px 14px;
+    background: var(--toyota-red);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
+    transition: all 0.2s ease;
+    font-family: var(--font-body);
+}
+
+.btn-exit-action:hover {
+    background: var(--toyota-red-dark);
+    transform: translateY(-2px);
+}
+
+.btn-delete {
+    padding: 6px 14px;
+    background: white;
+    color: var(--gray-500);
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
+    transition: all 0.2s ease;
+    font-family: var(--font-body);
+}
+
+.btn-delete:hover {
+    background: var(--danger-bg);
+    color: var(--danger);
+    border-color: var(--danger);
+}
+
+/* ============================================================
+   ESTADO VACÍO
+   ============================================================ */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--gray-500);
+}
+
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.empty-subtext {
+    font-size: 13px;
+    color: var(--gray-300);
+    margin-top: 4px;
+}
+
+/* ============================================================
+   PAGINACIÓN
+   ============================================================ */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 22px;
+    font-size: 13px;
+    color: var(--gray-700);
+}
+
+.pagination-container button {
+    padding: 8px 16px;
+    background: white;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    font-family: var(--font-body);
+}
+
+.pagination-container button:hover:not(:disabled) {
+    border-color: var(--toyota-red);
+    color: var(--toyota-red);
+}
+
+.pagination-container button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ============================================================
+   MODAL DE SALIDA — campos dentro del modal-card
+   ============================================================ */
+.modal-card .form-group {
+    margin-bottom: 16px;
+}
+
+.modal-card label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gray-700);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.modal-card label.required::after {
+    content: ' *';
+    color: var(--toyota-red);
+}
+
+.modal-card input,
+.modal-card textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: var(--font-body);
+    background: var(--gray-100);
+}
+
+.modal-card input:focus,
+.modal-card textarea:focus {
+    outline: none;
+    border-color: var(--toyota-red);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(235, 10, 30, 0.08);
+}
+
+.checkbox-group {
+    flex-direction: row !important;
+}
+
+.checkbox-label {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    cursor: pointer;
+    color: var(--gray-900) !important;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--toyota-red);
+}
+
+.char-count {
+    text-align: right;
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-top: 4px;
+    display: block;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+    .traffic-history {
+        padding: 18px;
+    }
+
+    .history-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box {
+        min-width: 0;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 9px 10px;
+    }
+}
