@@ -80,20 +80,6 @@ body {
     to { transform: rotate(360deg); }
 }
 
-@keyframes popCheck {
-    0% { transform: scale(0.6); opacity: 0; }
-    60% { transform: scale(1.15); opacity: 1; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-    }
-}
-
 /* ============================================================
    CONTENEDOR PRINCIPAL
    ============================================================ */
@@ -105,13 +91,9 @@ body {
 }
 
 /* ============================================================
-   CABECERA — IDENTIDAD TOYOTA
-   ============================================================ */
-/* ============================================================
-   CABECERA — NUEVO DISEÑO BLANCO / DEGRADADO Y LOGO
+   CABECERA — DISEÑO BLANCO / DEGRADADO Y LOGO
    ============================================================ */
 .header {
-    /* Fondo blanco con un elegante degradado hacia el color oscuro (Gris charcoal/negro) */
     background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F8 50%, var(--charcoal) 100%);
     color: var(--gray-900);
     padding: 16px 30px;
@@ -128,7 +110,6 @@ body {
     overflow: hidden;
 }
 
-/* Efecto de luz roja Toyota sutil en la esquina superior derecha */
 .header::before {
     content: '';
     position: absolute;
@@ -140,7 +121,6 @@ body {
     pointer-events: none;
 }
 
-/* Contenedor del Logo + Subtítulo */
 .header-brand {
     display: flex;
     flex-direction: column;
@@ -149,9 +129,14 @@ body {
 }
 
 .header-logo {
-    height: 48px; /* Ajusta la altura máxima según tus preferencias */
+    height: 48px;
     width: auto;
     object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.03);
 }
 
 .header-brand .subtitle {
@@ -162,7 +147,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Rediseño de botones para contrastar con el fondo claro del navbar */
 .tab-btn {
     padding: 10px 22px;
     border: 2px solid var(--gray-300);
@@ -192,31 +176,6 @@ body {
     box-shadow: 0 6px 18px rgba(235, 10, 30, 0.35);
 }
 
-/* Ajuste responsive para pantallas móviles */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 18px;
-    }
-
-    .header-brand {
-        align-items: center;
-    }
-
-    .header-logo {
-        height: 40px;
-    }
-}
-
-/* ============================================================
-   TIPOGRAFÍA COMPARTIDA
-   ============================================================ */
-h3 {
-    font-family: var(--font-display);
-}
-
 /* ============================================================
    BOTONES COMPARTIDOS
    ============================================================ */
@@ -239,13 +198,6 @@ h3 {
     box-shadow: 0 6px 18px rgba(235, 10, 30, 0.3);
 }
 
-.btn-save:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
 .btn-back {
     padding: 10px 20px;
     background: var(--gray-100);
@@ -257,144 +209,6 @@ h3 {
     cursor: pointer;
     transition: all 0.25s ease;
     font-family: var(--font-body);
-}
-
-.btn-back:hover {
-    background: var(--gray-150);
-    border-color: var(--gray-500);
-    transform: translateY(-2px);
-}
-
-.btn-link {
-    background: none;
-    border: none;
-    color: var(--toyota-red);
-    font-weight: 700;
-    font-size: 13px;
-    cursor: pointer;
-    text-decoration: underline;
-    padding: 4px 0;
-    font-family: var(--font-body);
-}
-
-.btn-link:hover {
-    color: var(--toyota-red-dark);
-}
-
-/* ============================================================
-   MODAL BASE (compartido: cliente duplicado, registrar salida)
-   ============================================================ */
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(17, 17, 20, 0.55);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    z-index: 1000;
-    animation: overlayIn 0.2s ease-out;
-}
-
-.modal-card {
-    background: white;
-    border-radius: var(--radius-lg);
-    padding: 30px;
-    max-width: 460px;
-    width: 100%;
-    box-shadow: var(--shadow-lg);
-    animation: scaleIn 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.modal-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: var(--warning-bg);
-    color: var(--warning);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    margin-bottom: 14px;
-}
-
-.modal-card h3 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    text-transform: none;
-    border-left: none;
-    padding-left: 0;
-}
-
-.modal-hint {
-    color: var(--gray-700);
-    font-size: 14px;
-    margin: 14px 0 20px;
-    line-height: 1.5;
-}
-
-.modal-actions {
-    display: flex;
-    gap: 12px;
-    justify-content: flex-end;
-    margin-top: 22px;
-    padding-top: 18px;
-    border-top: 2px solid var(--gray-150);
-}
-
-.modal-actions button {
-    flex: 1;
-}
-
-/* ============================================================
-   BADGES
-   ============================================================ */
-.badge-toyota {
-    background: var(--toyota-red-light);
-    color: var(--toyota-red-dark);
-    padding: 5px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.badge-today {
-    background: var(--success-bg);
-    color: var(--success);
-    padding: 5px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-/* ============================================================
-   MENSAJES
-   ============================================================ */
-.error-message {
-    background: var(--danger-bg);
-    color: var(--danger);
-    padding: 12px 16px;
-    border-radius: var(--radius-sm);
-    margin: 14px 0;
-    border-left: 4px solid var(--danger);
-    font-size: 13px;
-    animation: fadeInUp 0.3s ease-out;
-}
-
-.success-message {
-    background: var(--success-bg);
-    color: var(--success);
-    padding: 12px 16px;
-    border-radius: var(--radius-sm);
-    margin: 14px 0;
-    border-left: 4px solid var(--success);
-    font-size: 13px;
-    font-weight: 600;
-    animation: fadeInUp 0.3s ease-out;
 }
 
 /* ============================================================
@@ -419,40 +233,19 @@ h3 {
     animation: spin 0.8s linear infinite;
 }
 
-/* ============================================================
-   ACCESIBILIDAD — FOCO VISIBLE
-   ============================================================ */
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-    outline: 3px solid rgba(235, 10, 30, 0.4);
-    outline-offset: 2px;
-}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
+        align-items: center;
         text-align: center;
         padding: 18px;
     }
 
-    .header-tabs {
-        width: 100%;
-        justify-content: center;
+    .header-brand {
+        align-items: center;
     }
 
-    .tab-btn {
-        flex: 1;
-        text-align: center;
-        font-size: 12px;
-        padding: 8px 12px;
-    }
-
-    .modal-actions {
-        flex-direction: column;
+    .header-logo {
+        height: 40px;
     }
 }

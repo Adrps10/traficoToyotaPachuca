@@ -21,31 +21,28 @@
 }
 
 /* ============================================================
-   ESTILO MEJORADO PARA SUBTÍTULOS (Datos del Cliente, Atención, etc.)
+   ESTILO REFORZADO PARA SUBTÍTULOS (Barlow Condensed 800)
    ============================================================ */
-.form-section h3 {
-    font-family: var(--font-display); /* Barlow Condensed */
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--gray-900);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.traffic-form .form-section h3 {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: var(--gray-900) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
     
-    /* Layout y alineación */
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
     
-    /* Indicador lateral Rojo Toyota */
-    position: relative;
-    padding-left: 16px;
-    border-left: 5px solid var(--toyota-red);
-    margin-bottom: 22px;
-    line-height: 1.2;
+    padding-left: 14px !important;
+    border-left: 6px solid var(--toyota-red) !important;
+    margin-bottom: 22px !important;
+    line-height: 1.1 !important;
 }
 
-/* Línea sutil que acompaña al título hacia la derecha */
-.form-section h3::after {
+/* Línea decorativa hacia la derecha */
+.traffic-form .form-section h3::after {
     content: '';
     flex: 1;
     height: 2px;
@@ -187,9 +184,6 @@
     cursor: not-allowed;
 }
 
-/* ============================================================
-   VERIFICACIÓN DE TELÉFONO / CLIENTE DUPLICADO
-   ============================================================ */
 .phone-input-wrap {
     position: relative;
 }
@@ -217,59 +211,6 @@
     animation: fadeInUp 0.3s ease-out;
 }
 
-.client-summary-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    background: var(--success-bg);
-    border-left: 4px solid var(--success);
-    border-radius: var(--radius-md);
-    padding: 16px 20px;
-    animation: fadeInUp 0.3s ease-out;
-}
-
-.client-summary-card.inline {
-    background: var(--gray-100);
-    border-left-color: var(--toyota-red);
-    margin: 14px 0;
-}
-
-.client-summary-info {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.client-summary-badge {
-    display: inline-block;
-    width: fit-content;
-    background: var(--toyota-red);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 12px;
-    letter-spacing: 0.3px;
-}
-
-.client-summary-name {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--gray-900);
-}
-
-.client-summary-meta {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    font-size: 13px;
-    color: var(--gray-700);
-}
-
-/* ============================================================
-   ACCIONES
-   ============================================================ */
 .form-actions {
     display: flex;
     gap: 12px;
@@ -283,9 +224,6 @@
     min-width: 220px;
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
 @media (max-width: 768px) {
     .traffic-form {
         padding: 20px;
@@ -303,11 +241,6 @@
     .btn-entry {
         height: auto;
         padding: 8px 14px;
-    }
-
-    .client-summary-card {
-        flex-direction: column;
-        align-items: flex-start;
     }
 
     .form-actions {

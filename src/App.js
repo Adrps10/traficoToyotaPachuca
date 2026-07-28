@@ -14,7 +14,6 @@ function App() {
 
     const loadSelectData = async () => {
         setLoading(true);
-        // Se cargan por separado para que si uno falla, el otro igual funcione.
         try {
             const coachesRes = await getCoaches();
             setCoaches(coachesRes.data);
@@ -46,11 +45,15 @@ function App() {
     return (
         <div className="app-container">
             <header className="header">
-                <div className="header-title">
+                <div className="header-brand">
                     <img 
                         src={logoToyota}
-                        alt='Toyota Pachuca'
-                        className='header-logo' />
+                        alt="Toyota Pachuca"
+                        className="header-logo"
+                        onClick={() => setActiveTab('form')}
+                        style={{ cursor: 'pointer' }}
+                        title="Ir a Nuevo Registro"
+                    />
                     <div className="subtitle">Hoja de Tráfico</div>
                 </div>
                 <div className="header-tabs">
