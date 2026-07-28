@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'https://trafico-backend.onrender.com/api/traffic';
+// src/services/api.js
+const API_URL = "https://traficobackendtoyota.onrender.com/api";
 
 const api = axios.create({
     baseURL: API_URL,
